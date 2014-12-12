@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Problem 4.	Slideshow</title>
+    <style>
+        a {
+            text-decoration: none;
+            border: 1px solid;
+            background-color: lightgrey;
+            color: black;
+            display: block;
+            width: 100px;
+            text-align: center;
+            font-family: consolas;
+            margin-bottom: 5px;
+            padding: 2px;
+        }
+        div
+        {
+            display: inline-block;
+            margin: 5px;
+        }
+        #main
+        {
+            height: 640px;
+            width: 800px;
+            border: 1px solid black;
+        }
+        .controls
+        {
+            margin-top: 120px;
+        }
+        #slide
+        {
+            height: 450px;
+            width: 540px;
+            border: 1px solid black;
+            margin-top: 90px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+</head>
+<body>
+ <div id="main">
+     <div class = "controls" id="left">
+         <a href="#" id="previous">Previous</a>
+     </div>
+     <div id="slide">
+
+     </div>
+     <div class = "controls"id="right">
+         <a href="#" id="next">Next</a>
+     </div>
+ </div>
+</body>
+</html>

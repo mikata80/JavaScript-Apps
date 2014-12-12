@@ -1,0 +1,176 @@
+body{
+    font-family: Calibri;
+    width: 707px;
+    border: 2px solid saddlebrown;
+    margin: 0;
+    padding: 0;
+}
+
+#divHeader {
+    background-color: #FAC090;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+
+}
+#divA{
+    float: right;
+    text-decoration: none;
+    text-align: right;
+    display: none;
+    padding-right: 5px;
+}
+#divFooter{
+    border-top: 2px solid saddlebrown;
+    background-color: #FAC090;
+    padding: 10px;
+    margin: 0;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+}
+.clear {
+    clear: both;
+}
+
+#divMain{
+    border-top: 2px solid saddlebrown;
+    background-color: #F79646;
+    width: 707px;
+    /*padding-bottom: 20px;*/
+
+}
+#divWelcome{
+    background-color: #FAC090;
+    border: 2px solid saddlebrown;
+    box-shadow: 2px 2px 2px saddlebrown;
+    border-radius: 10px;
+    text-align: center;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+#divWelcome h1{
+    padding-top: 10px;
+    padding-bottom: 0px;
+    margin: 0px;
+}
+#divWelcome hr{
+    border: 1px solid saddlebrown;
+    box-shadow: 1px 1px 1px saddlebrown;
+    width: 80%;
+    margin-bottom: 40px;
+}
+#divWelcome span {
+    padding-left: 70px;
+}
+
+label{
+    display: block;
+    margin: 5px;
+}
+
+input{
+    display: block;
+    margin: 5px;
+    width: 95%;
+    height: 20px;
+}
+.button{
+    display: inline-block;
+    background: #F79646;
+    border: 2px solid saddlebrown;
+    border-radius: 5px;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 10px;
+    width: 100px;
+    margin-bottom: 10px;
+}
+
+.buttonDel {
+    display: block;
+    background: lightcoral;
+    border: 2px solid firebrick;
+    border-radius: 5px;
+    text-align: center;
+    color: firebrick;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 1px;
+    width: 10px;
+    float: right;
+    position: relative;
+}
+
+.delBookMark span {
+    display: none;
+}
+#divLogin,#divRegister{
+    background-color: #FAC090;
+    border: 2px solid saddlebrown;
+    box-shadow: 2px 2px 2px saddlebrown;
+    border-radius: 10px;
+    height: 253px;
+    width: 339px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 25px;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 20px;
+}
+#divLogin h1,#divRegister h1{
+    margin: 0;
+    text-align: center;
+}
+#divLogin hr,#divRegister hr{
+    border: 1px solid saddlebrown;
+    box-shadow: 1px 1px 1px saddlebrown;
+    width: 100%;
+    margin-bottom: 5px;
+    /*margin-bottom: 40px;*/
+}
+#divLogin span {
+    padding-left: 70px;
+}
+
+#divLogin a,#divRegister a{
+    margin-top: 8px;
+    margin-left: 5px;
+}
+#divUserBookmarks>h2{
+    text-align: center;
+
+}
+.divTitlesAndUrls{
+    background-color: #FAC090;
+    border: 2px solid saddlebrown;
+    box-shadow: 2px 2px 2px saddlebrown;
+    border-radius: 10px;
+    display: table;
+    border: 1px solid black;
+    margin: 5px;
+    padding: 5px;
+    width: 200px;
+    float: left;
+}
+.divTitlesAndUrls a{
+    display: block;
+}
+
+
+.notBlock{
+    display: inline-block;
+}
+
+.addNew{
+    float: left;
+}

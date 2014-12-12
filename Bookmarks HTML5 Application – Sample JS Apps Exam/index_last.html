@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Bookmarks HTML5 Application – Sample JS Apps Exam</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-noty/2.2.2/packaged/jquery.noty.packaged.min.js"></script>
+	
+    <!--<link rel="stylesheet" type="text/css" href="style.css">-->
+	<style>
+	body{
+    font-family: Calibri;
+    width: 707px;
+    border: 2px solid saddlebrown;
+    margin: 0;
+    padding: 0;
+}
+
+#divHeader {
+    background-color: #FAC090;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+
+}
+#divA{
+    float: right;
+    text-decoration: none;
+    text-align: right;
+    display: none;
+    padding-right: 5px;
+}
+#divFooter{
+    border-top: 2px solid saddlebrown;
+    background-color: #FAC090;
+    padding: 10px;
+    margin: 0;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+}
+.clear {
+    clear: both;
+}
+
+#divMain{
+    border-top: 2px solid saddlebrown;
+    background-color: #F79646;
+    width: 707px;
+    /*padding-bottom: 20px;*/
+
+}
+#divWelcome{
+    background-color: #FAC090;
+    border: 2px solid saddlebrown;
+    box-shadow: 2px 2px 2px saddlebrown;
+    border-radius: 10px;
+    text-align: center;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+#divWelcome h1{
+    padding-top: 10px;
+    padding-bottom: 0px;
+    margin: 0px;
+}
+#divWelcome hr{
+    border: 1px solid saddlebrown;
+    box-shadow: 1px 1px 1px saddlebrown;
+    width: 80%;
+    margin-bottom: 40px;
+}
+#divWelcome span {
+    padding-left: 70px;
+}
+
+label{
+    display: block;
+    margin: 5px;
+}
+
+input{
+    display: block;
+    margin: 5px;
+    width: 95%;
+    height: 20px;
+}
+.button{
+    display: inline-block;
+    background: #F79646;
+    border: 2px solid saddlebrown;
+    border-radius: 5px;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 10px;
+    width: 100px;
+    margin-bottom: 10px;
+}
+
+.buttonDel {
+    display: block;
+    background: lightcoral;
+    border: 2px solid firebrick;
+    border-radius: 5px;
+    text-align: center;
+    color: firebrick;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 1px;
+    width: 10px;
+    float: right;
+    position: relative;
+}
+
+.delBookMark span {
+    display: none;
+}
+#divLogin,#divRegister{
+    background-color: #FAC090;
+    border: 2px solid saddlebrown;
+    box-shadow: 2px 2px 2px saddlebrown;
+    border-radius: 10px;
+    height: 253px;
+    width: 339px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 25px;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 20px;
+}
+#divLogin h1,#divRegister h1{
+    margin: 0;
+    text-align: center;
+}
+#divLogin hr,#divRegister hr{
+    border: 1px solid saddlebrown;
+    box-shadow: 1px 1px 1px saddlebrown;
+    width: 100%;
+    margin-bottom: 5px;
+    /*margin-bottom: 40px;*/
+}
+#divLogin span {
+    padding-left: 70px;
+}
+
+#divLogin a,#divRegister a{
+    margin-top: 8px;
+    margin-left: 5px;
+}
+#divUserBookmarks>h2{
+    text-align: center;
+
+}
+.divTitlesAndUrls{
+    background-color: #FAC090;
+    border: 2px solid saddlebrown;
+    box-shadow: 2px 2px 2px saddlebrown;
+    border-radius: 10px;
+    display: table;
+    border: 1px solid black;
+    margin: 5px;
+    padding: 5px;
+    width: 200px;
+    float: left;
+}
+.divTitlesAndUrls a{
+    display: block;
+}
+
+
+.notBlock{
+    display: inline-block;
+}
+
+.addNew{
+    float: left;
+}
+
+	</style>
+</head>
+<body>
+    <header id="divHeader">
+        <span id="headH1">Bookmarks</span>
+        <a href="#" id="divA">Log Out</a>
+    </header>
+    <div class="clear"></div>
+    <div id="divMain">
+
+        <div id="divWelcome">
+             <h1>Welcome</h1>
+            <hr>
+            <a href="#" id="aLogin" class="button" onclick="(function(){
+               $('#divWelcome').hide();
+               $('#divLogin').show();
+            }())">Login</a>
+            <span></span>
+            <a href="#" id="aRegister" class="button" onclick="(function(){
+               $('#divWelcome').hide();
+               $('#divLogin').hide();
+               $('#divUserBookmarks').hide();
+               $('#divRegister').show();
+            }())">Register</a>
+            <div class="clear"></div>
+        </div>
+        <div id="divLogin">
+            <h1>Login</h1>
+            <hr>
+            <label for="userName">Username:</label>
+            <input type="text" id="userName">
+            <label for="userPass">Password:</label>
+            <input type="password" id="userPass">
+            <a href="#" id="btnLoginParse" class="button">Login</a>
+            <span></span>
+            <a href="#" id="brnRegister" class="button" onclick="(function(){
+               $('#divWelcome').hide();
+               $('#divLogin').hide();
+               $('#divUserBookmarks').hide();
+               $('#divRegister').show();
+            }())">Register here</a>
+        </div>
+        <div id="divRegister">
+            <h1>Registration</h1>
+            <hr>
+            <label for="userRegName">Username:</label>
+            <input type="text" id="userRegName">
+            <label for="userRegPass">Password:</label>
+            <input type="password" id="userRegPass">
+            <a href="#" id="btnRegisterParse" class="button">Register</a>
+        </div>
+        <div id="divUserBookmarks"></div>
+        <div class="clear"></div>
+        <footer id="divFooter">
+        <span>© 2014 by SoftUni Foundation, No Rights Reserved</span>
+        </footer>
+    </div>
+</body>
+<script type="text/javascript">
+    $(welcome());
+    var PARSE_APP_ID = "n22QaKKSxORLf8q2hmGjZbIbxImmRTNyEP4wmNlu";
+    var PARSE_REST_API_KEY = "820vUgWNkq9R4A44T73d64iYo6wdWwIj0AXn9QTb";
+    var userName;
+    var userSession;
+    var userId;
+
+    $('#btnLoginParse').click(function(){ login(); return false; });
+    $('#btnRegisterParse').click(function(){ register() ; return false; });
+    function main(){
+        $('#divWelcome').hide();
+        $('#divLogin').hide();
+    }
+    function welcome(){
+        $('#divWelcome').show();
+        $('#divLogin').hide();
+        $('#divRegister').hide();
+        $('#divUserBookmarks').hide();
+    }
+    //LOGIN
+    function login() {
+        var un = $('#userName').val();
+        var ps = $('#userPass').val();
+        $.ajax({
+            method: "GET",
+            headers: {
+                "X-Parse-Application-Id": PARSE_APP_ID,
+                "X-Parse-REST-API-Key": PARSE_REST_API_KEY
+            },
+            url: "https://api.parse.com/1/login?username=" + un + "&password=" + ps,
+            success: getUserDetails,
+            error: ajaxLoginError
+        })
+    }
+
+    function loadFreshData(){
+        $('#divWelcome').hide();
+        var un = $('#userName').val();
+        var ps = $('#userPass').val();
+        $.ajax({
+            method: "GET",
+            headers: {
+                "X-Parse-Application-Id": PARSE_APP_ID,
+                "X-Parse-REST-API-Key": PARSE_REST_API_KEY
+            },
+            url: "https://api.parse.com/1/login?username=" + un + "&password=" + ps,
+            success: getUserDetails,
+            error: ajaxLoginError
+        })
+    }
+
+    function getUserDetails(data){
+        var object = data;
+        userId =data.objectId;
+        userSession =data.sessionToken;
+        userName = data.username;
+        $.ajax({
+            method: "GET",
+            headers: {
+                "X-Parse-Application-Id": PARSE_APP_ID,
+                "X-Parse-REST-API-Key": PARSE_REST_API_KEY,
+                "X-Parse-Session-Token": userSession
+            },
+
+            url: "https://api.parse.com/1/classes/Bookmark/",
+            success: getAllBookmarksByUser,
+            error: ajaxLoginError
+        })
+    }
+
+    function getAllBookmarksByUser(data){
+        $(main());
+        $('#divWelcome').hide();
+        $('#divUserBookmarks').show();
+        var bookmarkUser = 'Bookmarks - '+ userName;
+        $('#divA').show();
+        $('#divA').click(logOut);
+        $('#headH1').text(bookmarkUser);
+        var html = "";
+        for(var i=0;i<data.results.length;i++){
+            var href = data.results[i].url;
+            var title =  data.results[i].title;
+            var objectId = data.results[i].objectId;
+            var aId = 'book'+i;
+            html += '<div class="divTitlesAndUrls">'+
+                    '<div class="delBookMark">'+
+                    '<a href="#" class="buttonDel">'+ 'X'+'</a>'+
+                    '<span>'+ objectId + '</span>'+
+                    '</div>'+
+                    '<span>'+ title + '</span>'+
+                    '<a href="' + href + '">'+ href +'</a>'+
+                    '</div>';
+            $('#divUserBookmarks').html(html);
+            $('.buttonDel').click(function(){
+                var  pp =  $(this).parents('.divTitlesAndUrls').get(0) ;
+                var  p = $(this).parents('.delBookMark').get(0) ;
+                var idObj = p.getElementsByTagName('span');
+                var id = idObj[0].textContent;
+                $(p).click(deleteBookmark(id,title));
+                $(pp).fadeTo(700, 0, function() {
+                    $(this).remove();
+                });
+            });
+        }
+
+        $('#divUserBookmarks').append('<div id="divAddBookMark" class="divTitlesAndUrls"></div>');
+        $('#divAddBookMark')
+                .append('<h3> New bookmarks </h3>' )
+                .append('<hr>')
+                .append('<div class="addNew" id="new">')
+
+        $('#new').append('<label for="title" class="notBlock">Title:</label>')
+                .append('<input type="text" id="title" class="notBlock">')
+                .append('<br />')
+                .append('<label for="url" class="notBlock">Url:</label>')
+                .append('<input type="text" id="url" class="notBlock">')
+                .append('<div><a href="#" id="addBookmark" class="button">Add</a></div>');
+        $('#addBookmark').append('<div class="clear"></div>')
+        $('#divUserBookmarks').append('<div class="clear"></div>')
+        $('#addBookmark').click(addBookmark);
+    }
+
+    function confirmDelete(param) {
+        if (confirm("Наистина ли искаш да изтриеш " + param + "?")) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    function   addBookmark(){
+        var title = $('#title').val();
+        var url = $('#url').val();
+        var arr = [userId, {write:true,read:true}];
+        var data = JSON.stringify({"ACL":arr,"title":title,"url":url})
+                .replace('",{','":{')
+                .replace('[','{')
+                .replace(']','}');
+        $.ajax({
+                    method: "POST",
+                    headers: {
+                        "X-Parse-Application-Id": PARSE_APP_ID,
+                        "X-Parse-REST-API-Key": PARSE_REST_API_KEY,
+                        "X-Parse-Session-Token": userSession
+                    },
+                    data:data,
+                    url: "https://api.parse.com/1/classes/Bookmark/",
+                    success: ajaxAddedSuccess,
+                    error: ajaxAddedError
+                }
+        )
+        $(function (){
+            loadFreshData();
+        }())
+    }
+
+   function deleteBookmark(objectId,title){
+       if(confirmDelete(title)){
+           $.ajax({
+               method: "DELETE",
+               headers: {
+                   "X-Parse-Application-Id": PARSE_APP_ID,
+                   "X-Parse-REST-API-Key": PARSE_REST_API_KEY,
+                   "X-Parse-Session-Token": userSession,
+                   "Content-Type": "application/json"
+               },
+               url: "https://api.parse.com/1/classes/Bookmark/" + objectId,
+               success:ajaxOk,
+               error: ajaxError
+           })
+       }
+   }
+    //messages
+    function ajaxLoginError() {
+        var message = "Invalid login.";
+        noty({
+                    text: message,
+                    type: 'error',
+                    layout: 'topCenter',
+                    timeout: 5000}
+        );
+    }
+    //register
+    function register(){
+        var un = $('#userRegName').val();
+        var ps = $('#userRegPass').val();
+        $.ajax({
+            method: "POST",
+            headers: {
+                "X-Parse-Application-Id": PARSE_APP_ID,
+                "X-Parse-REST-API-Key": PARSE_REST_API_KEY
+            },
+            data: JSON.stringify({"username":un,"password":ps,"phone":" "}),
+            url: "https://api.parse.com/1/users",
+            success: ajaxRegistrationSuccess,
+            error: ajaxRegistrationError
+        })
+    }
+    function logOut(){
+        userSession = "";
+        $('#divWelcome').hide();
+        $('#divLogin').show();
+        $('#divRegister').hide();
+        $('#divUserBookmarks').hide();
+        $('#headH1').text('Bookmarks');
+        $('#divA').hide();
+    }
+
+    function ajaxAddedSuccess() {
+        var message = "Bookmark added successfully!";
+        noty({
+                    text: message,
+                    type: 'success',
+                    layout: 'topCenter',
+                    timeout: 3000}
+        );
+        $(main());
+    }
+
+    function ajaxAddedError() {
+        //var message = "Operation for  " + this.mpLable + " was successfully!";
+        var message = "Faile to add bookmark!";
+        noty({
+                    text: message,
+                    type: 'error',
+                    layout: 'topCenter',
+                    timeout: 3000}
+        );
+    }
+
+    function ajaxRegistrationSuccess() {
+        var message = "User registered successfully!";
+        noty({
+                    text: message,
+                    type: 'success',
+                    layout: 'topCenter',
+                    timeout: 3000}
+        );
+        $('#divLogin').show();
+        $('#divRegister').hide();
+    }
+
+    function ajaxRegistrationError() {
+        //var message = "Operation for  " + this.mpLable + " was successfully!";
+        var message = "Registration failed!";
+        noty({
+                    text: message,
+                    type: 'error',
+                    layout: 'topCenter',
+                    timeout: 5000}
+        );
+    }
+
+    function ajaxError() {
+        //var data = JSON.parse(this.mp);
+        var message = "Operation was NOT successfully!";
+        noty({
+                    text: message,
+                    type: 'error',
+                    layout: 'topCenter',
+                    timeout: 5000}
+        );
+    }
+
+    function ajaxOk() {
+        var message = "Operation was successfully!";
+        noty({
+                    text: message,
+                    type: 'success',
+                    layout: 'topCenter',
+                    timeout: 5000}
+        );
+    }
+</script>
+</html>

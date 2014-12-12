@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Problem 3.	Table Generator</title>
+    <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <style>
+        table,th,td{
+            border: 1px solid black;
+            border-collapse: collapse;
+
+        }
+
+        th{
+            text-align: center;
+            padding: 10px;
+            background-color: mediumseagreen;
+        }
+
+        td{
+            padding: 10px;
+        }
+        input{
+            display: block;
+            margin-bottom: 10px;
+            width: 1000px;
+        }
+
+    </style>
+</head>
+<body>
+<div id="main">
+    <label for="json">JSON:</label>
+    <input type="text" id="json">
+    <button id="genTable">Generate table</button>
+    <table id="mp">
+
+    </table>
+
+</div>
+<script type="text/javascript">
+    jQuery(document).ready(function($){
+        $('#genTable').on('click', function() {
+            var regex = /(^")|("$)/g;
+            var jsonStr = $.parseJSON($('#json').val().replace(regex,""));
+            $('#mp').append("<tr><th>Manufacturer</th><th>Model</th><th>Year</th><th>Price</th><th>Class</th></tr>")
+            //$('#main').append("<tr><td>")
+            $.each(jsonStr, function () {
+                var man = this['manufacturer'];
+                var model = this['model'];
+                var year = this['year'];
+                var price = this['price'];
+                var _class = this['class'];
+                $('#mp').append("<tr><td>"+
+                        man +
+                        "</td><td>" +
+                        model +
+                        "</td><td>" +
+                        year+
+                        "</td><td>" +
+                        price +
+                        "</td><td>" +
+                        _class +
+                        "</tr>");
+            })
+        })
+    })
+</script>
+
+</body>
+</html>

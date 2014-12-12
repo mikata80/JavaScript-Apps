@@ -1,0 +1,32 @@
+body{
+    font-family: consolas;
+}
+.addCountry{
+    text-decoration: none;
+    display: inline-block;
+    width: 100px;
+    height: 15px;
+    background: #4E9CAF;
+    padding: 10px;
+    margin: 5px;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    font-size: 15px;
+
+}
+a {
+    text-decoration: none;
+    display: inline-block;
+    /*border: 1px solid;*/
+    padding: 5px;
+    margin: 2px;
+    /*text-align: center;*/
+    font-size: 13px;
+}
+li{
+    font-size: 15px;
+    padding-left: 10px;
+
+}
+
